@@ -41,3 +41,5 @@ class NewPerson extends React.Component {
 		);
 	}
 }
+
+export default NewPerson;
