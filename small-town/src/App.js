@@ -27,6 +27,18 @@ class App extends React.Component {
 			});
 	}
 
+	addPerson(person) {
+		axios
+			.post('http://localhost:3100/people', person)
+			.then((result) => {
+				this.setState({ people: result.data });
+				this.props.history.push('/people');
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
+
 	render() {
 		return (
 			<div className="App">
@@ -38,7 +50,7 @@ class App extends React.Component {
 				<div>
 					<Route exact path="/" component={Home} />
 					<Route exact path="/people" render={() => <People people={this.state.people} />} />
-					<Route exact path="/new" component={NewPerson} />
+					<Route exact path="/new" render={() => <NewPerson addPerson={this.addPerson} />} />
 				</div>
 			</div>
 		);

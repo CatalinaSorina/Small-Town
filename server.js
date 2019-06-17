@@ -60,7 +60,7 @@ let people = [
 		id: 7,
 		firstname: 'King',
 		lastname: 'Ramses',
-		house: 2,
+		house: 3,
 		growth: 'kid'
 	}
 ];
