@@ -5,6 +5,7 @@ import axios from 'axios';
 import Home from './components/Home';
 import People from './components/People';
 import NewPerson from './components/NewPerson';
+import ModifyPerson from './components/ModifyPerson';
 
 import './App.css';
 
@@ -12,7 +13,8 @@ class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			people: []
+			people: [],
+			activePerson: null
 		};
 	}
 
@@ -44,6 +46,24 @@ class App extends React.Component {
 			.delete(`http://localhost:3100/people/${id}`)
 			.then((result) => {
 				this.setState({ people: result.data });
+				this.props.history.push('/people');
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+
+	modify = (person) => {
+		this.setState({ activePerson: person });
+		this.props.history.push('/modify');
+	};
+
+	modifyPerson = (person) => {
+		axios
+			.put(`http://localhost:3100/people/${person.id}`, person)
+			.then((result) => {
+				this.setState({ people: result.data });
+				this.props.history.push('/people');
 			})
 			.catch((error) => {
 				console.log(error);
@@ -63,9 +83,16 @@ class App extends React.Component {
 					<Route
 						exact
 						path="/people"
-						render={() => <People people={this.state.people} remove={this.remove} />}
+						render={() => <People people={this.state.people} remove={this.remove} modify={this.modify} />}
 					/>
 					<Route exact path="/new" render={() => <NewPerson addPerson={this.addPerson} />} />
+					<Route
+						exact
+						path="/modify"
+						render={() => (
+							<ModifyPerson person={this.state.activePerson} modifyPerson={this.modifyPerson} />
+						)}
+					/>
 				</div>
 			</div>
 		);

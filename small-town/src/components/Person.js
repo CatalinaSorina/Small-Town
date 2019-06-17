@@ -17,13 +17,18 @@ class Person extends React.Component {
 		this.props.remove(this.props.person.id);
 	};
 
+	modify = (e) => {
+		e.preventDefault();
+		this.props.modify(this.props.person);
+	};
+
 	render() {
 		return this.state.person ? (
 			<div className="Person">
 				<h2>
 					{this.state.person.firstname} {this.state.person.lastname}
 				</h2>
-				<label>Home: {this.state.person.house}</label>
+				<label>House: {this.state.person.house}</label>
 				<label>Growth: {this.state.person.growth}</label>
 				<div>
 					<button className="modify" onClick={this.modify}>
