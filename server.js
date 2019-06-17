@@ -30,35 +30,35 @@ let people = [
 	},
 	{
 		id: 3,
-		firstName: 'Mary',
+		firstname: 'Mary',
 		lastname: 'Smith',
 		house: 1,
 		growth: 'kid'
 	},
 	{
 		id: 4,
-		firstName: 'Tom',
+		firstname: 'Tom',
 		lastname: 'Smith',
 		house: 1,
 		growth: 'kid'
 	},
 	{
 		id: 5,
-		firstName: 'Muriel',
+		firstname: 'Muriel',
 		lastname: 'Bagge',
 		house: 2,
 		growth: 'adult'
 	},
 	{
 		id: 6,
-		firstName: 'Eustace',
+		firstname: 'Eustace',
 		lastname: 'Bagge',
 		house: 2,
 		growth: 'adult'
 	},
 	{
 		id: 7,
-		firstName: 'King',
+		firstname: 'King',
 		lastname: 'Ramses',
 		house: 2,
 		growth: 'kid'
