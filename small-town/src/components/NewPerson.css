@@ -7,6 +7,13 @@
 	width: 40rem;
 }
 
+.newPerson label::selection,
+.newPerson input::selection,
+.newPerson select::selection {
+	color: orange;
+	background: #250a08;
+}
+
 .newPerson input,
 .newPerson select,
 .newPerson option {
@@ -14,15 +21,29 @@
 	font-size: 1.5rem;
 	background: transparent;
 	color: lightgreen;
-    text-align: center;
-    border:0.1rem solid lightgreen;
-    outline: none;
-}.newPerson input::placeholder{
-    color:rgb(33, 63, 33);
+	text-align: center;
+	border: 0.1rem solid lightgreen;
+	outline: none;
+}
+.newPerson input::placeholder {
+	color: rgb(33, 63, 33);
 }
 
 .newPerson select {
 	width: 19.5rem;
-}.newPerson option {
-    background: rgb(33, 63, 33);
-} 
+}
+.newPerson option {
+	background: rgb(33, 63, 33);
+}
+
+.newPerson button {
+	margin: 1rem;
+	padding: 0.4rem;
+	color: #250a08;
+	background-image: linear-gradient(to right, rgb(58, 104, 58), rgb(60, 126, 60), lightgreen);
+	border: none;
+	outline-color: rgb(9, 19, 9);
+}
+.newPerson button:hover {
+	color: rgb(209, 209, 108);
+}
