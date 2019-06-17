@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './NewPerson.css';
+import './ModifyPerson.css';
 
 class ModifyPerson extends React.Component {
 	constructor() {
@@ -56,6 +56,10 @@ class ModifyPerson extends React.Component {
 						type="text"
 						value={this.state.person.lastname}
 					/>
+				</div>
+				<div>
+					<label>Portret link:</label>
+					<input name="portret" onChange={this.handleChange} type="text" value={this.state.person.portret} />
 				</div>
 				<div>
 					<label>House:</label>

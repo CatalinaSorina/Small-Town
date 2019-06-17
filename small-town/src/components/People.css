@@ -1,14 +1,51 @@
 .People {
-	width: 40rem;
+	width: 35rem;
+	height: 28rem;
+	overflow: auto;
 	background: rgba(117, 88, 88, 0.5);
-	margin: 1.2rem;
+	margin: 3rem;
 	padding: 1rem;
+}
+
+.People input {
+	padding: 1rem;
+	font: inherit;
+	text-align: center;
+	background: #250a08;
+	color: #dbd374;
+	outline: none;
+}
+
+.People::-webkit-scrollbar {
+	width: 20px;
+}
+
+.People::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+	border-radius: 10px;
+}
+
+.People::-webkit-scrollbar-thumb {
+	background: #dbd374;
+	border-radius: 10px;
+}
+
+.People::-webkit-scrollbar-thumb:hover {
+	background: #837e46;
 }
 
 .Person {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	padding-bottom: 2rem;
+}
+
+.Person img {
+	width: 8rem;
+	height: 10rem;
+	margin: 0.1rem;
+	border: 0.1rem solid #250a08;
 }
 
 .Person button {

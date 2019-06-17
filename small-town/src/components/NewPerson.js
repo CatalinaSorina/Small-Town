@@ -7,6 +7,7 @@ class NewPerson extends React.Component {
 		super();
 		this.state = {
 			person: {
+				portret: '',
 				firstname: '',
 				lastname: '',
 				house: 0,
@@ -47,6 +48,10 @@ class NewPerson extends React.Component {
 				<div>
 					<label>Last name:</label>
 					<input name="lastname" onChange={this.handleChange} type="text" placeholder="fill" />
+				</div>
+				<div>
+					<label>Portret link:</label>
+					<input name="portret" onChange={this.handleChange} type="text" value={this.state.person.portret} />
 				</div>
 				<div>
 					<label>House:</label>

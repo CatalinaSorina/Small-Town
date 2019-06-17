@@ -28,6 +28,7 @@ class Person extends React.Component {
 				<h2>
 					{this.state.person.firstname} {this.state.person.lastname}
 				</h2>
+				<img src={this.state.person.portret} alt="no pic" />
 				<label>House: {this.state.person.house}</label>
 				<label>Growth: {this.state.person.growth}</label>
 				<div>

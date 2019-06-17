@@ -7,13 +7,6 @@
 	width: 40rem;
 }
 
-.newPerson label::selection,
-.newPerson input::selection,
-.newPerson select::selection {
-	color: orange;
-	background: #250a08;
-}
-
 .newPerson input,
 .newPerson select,
 .newPerson option {
