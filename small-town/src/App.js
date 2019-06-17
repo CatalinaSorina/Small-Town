@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 import Home from './components/Home';
 import People from './components/People';
@@ -13,6 +14,17 @@ class App extends React.Component {
 		this.state = {
 			people: []
 		};
+	}
+
+	componentDidMount() {
+		axios
+			.get('http://localhost:3100/people')
+			.then((result) => {
+				this.setState({ people: result.data });
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	}
 
 	render() {
