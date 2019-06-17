@@ -12,6 +12,11 @@ class Person extends React.Component {
 		this.setState({ person: this.props.person });
 	}
 
+	remove = (e) => {
+		e.preventDefault();
+		this.props.remove(this.props.person.id);
+	};
+
 	render() {
 		return this.state.person ? (
 			<div className="Person">
@@ -20,6 +25,14 @@ class Person extends React.Component {
 				</h2>
 				<label>Home: {this.state.person.house}</label>
 				<label>Growth: {this.state.person.growth}</label>
+				<div>
+					<button className="modify" onClick={this.modify}>
+						Modify person
+					</button>
+					<button className="remove" onClick={this.remove}>
+						Remove from Small Town
+					</button>
+				</div>
 			</div>
 		) : (
 			''

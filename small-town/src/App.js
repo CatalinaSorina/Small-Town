@@ -39,6 +39,17 @@ class App extends React.Component {
 			});
 	}
 
+	remove = (id) => {
+		axios
+			.delete(`http://localhost:3100/people/${id}`)
+			.then((result) => {
+				this.setState({ people: result.data });
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+
 	render() {
 		return (
 			<div className="App">
@@ -49,7 +60,11 @@ class App extends React.Component {
 				</nav>
 				<div>
 					<Route exact path="/" component={Home} />
-					<Route exact path="/people" render={() => <People people={this.state.people} />} />
+					<Route
+						exact
+						path="/people"
+						render={() => <People people={this.state.people} remove={this.remove} />}
+					/>
 					<Route exact path="/new" render={() => <NewPerson addPerson={this.addPerson} />} />
 				</div>
 			</div>
