@@ -9,6 +9,9 @@
 	color: #dbd374;
 	text-align: center;
 	font: 1.5rem Courier;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .map {
@@ -21,8 +24,9 @@ a {
 	color: #250a08;
 	background: rgba(224, 233, 107, 0.7);
 	padding: 1rem;
-	margin-left:1rem;
+	margin-left: 1rem;
 	border-radius: 0.4rem;
-}a:hover{
+}
+a:hover {
 	background: rgba(224, 233, 107);
 }

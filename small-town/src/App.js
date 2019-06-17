@@ -36,9 +36,9 @@ class App extends React.Component {
 					<NavLink to="/">Home</NavLink>
 				</nav>
 				<div>
-					<Route path="/" component={Home} />
-					<Route path="/people" render={() => <People people={this.state.people} />} />
-					<Route path="/new" component={NewPerson} />
+					<Route exact path="/" component={Home} />
+					<Route exact path="/people" render={() => <People people={this.state.people} />} />
+					<Route exact path="/new" component={NewPerson} />
 				</div>
 			</div>
 		);

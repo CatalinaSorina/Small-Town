@@ -1,0 +1,10 @@
+.People {
+    width: 40rem;
+    background: rgba(117, 88, 88, 0.5);
+    margin: 1.2rem;
+}
+
+.Person {
+    display: flex;
+    flex-direction: column;
+}

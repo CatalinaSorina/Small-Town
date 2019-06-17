@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './NewPerson.css';
+
 class NewPerson extends React.Component {
 	constructor() {
 		super();
@@ -15,7 +17,7 @@ class NewPerson extends React.Component {
 
 	render() {
 		return (
-			<form>
+			<form className="newPerson">
 				<div>
 					<label>First name:</label>
 					<input type="text" placeholder="fill" />

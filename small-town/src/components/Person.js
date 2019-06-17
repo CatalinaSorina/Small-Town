@@ -18,7 +18,7 @@ class Person extends React.Component {
 				<h2>
 					{this.state.person.firstname} {this.state.person.lastname}
 				</h2>
-				<label>Home: {this.state.person.home}</label>
+				<label>Home: {this.state.person.house}</label>
 				<label>Growth: {this.state.person.growth}</label>
 			</div>
 		) : (

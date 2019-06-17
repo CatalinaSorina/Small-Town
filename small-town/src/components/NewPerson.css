@@ -1,0 +1,28 @@
+.newPerson {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	padding: 1rem;
+	margin: 1rem;
+	width: 40rem;
+}
+
+.newPerson input,
+.newPerson select,
+.newPerson option {
+	padding: 0.5rem;
+	font-size: 1.5rem;
+	background: transparent;
+	color: lightgreen;
+    text-align: center;
+    border:0.1rem solid lightgreen;
+    outline: none;
+}.newPerson input::placeholder{
+    color:rgb(33, 63, 33);
+}
+
+.newPerson select {
+	width: 19.5rem;
+}.newPerson option {
+    background: rgb(33, 63, 33);
+} 
