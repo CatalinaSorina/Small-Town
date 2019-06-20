@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import People from "./components/People";
 import NewPerson from "./components/NewPerson";
 import ModifyPerson from "./components/ModifyPerson";
+import ErrorMessage from "./components/ErrorMessage";
 
 import "./App.css";
 
@@ -53,12 +54,12 @@ class App extends React.Component {
     axios
       .post("http://localhost:3100/people", person)
       .then(result => {
-        console.log(result.Error);
         this.setState({ people: result.data });
         this.props.history.push("/people");
       })
       .catch(error => {
         // debugger;
+        // Make sure you filled everything and you don't have the name the same as someone in the Small Town.
         console.log(error);
       });
   }
@@ -71,6 +72,7 @@ class App extends React.Component {
         this.props.history.push("/people");
       })
       .catch(error => {
+        // Make sure you removed someone that exist in the Small Town.
         console.log(error);
       });
   };
@@ -88,7 +90,12 @@ class App extends React.Component {
         this.props.history.push("/people");
       })
       .catch(error => {
+        // Make sure you selected someone that is still in the Small Town.
         console.log(error);
+        this.setState({
+          error:
+            "Make sure you selected someone that is still in the Small Town."
+        });
       });
   };
 
@@ -105,29 +112,43 @@ class App extends React.Component {
           <Route
             exact
             path="/people"
-            render={() => (
-              <People
-                people={this.state.filterPeople}
-                filterPeople={this.filterPeople}
-                remove={this.remove}
-                modify={this.modify}
-              />
-            )}
+            render={() =>
+              this.state.error !== "" ? (
+                <ErrorMessage message={this.state.error} />
+              ) : (
+                <People
+                  people={this.state.filterPeople}
+                  filterPeople={this.filterPeople}
+                  remove={this.remove}
+                  modify={this.modify}
+                />
+              )
+            }
           />
           <Route
             exact
             path="/new"
-            render={() => <NewPerson addPerson={this.addPerson} />}
+            render={() =>
+              this.state.error !== "" ? (
+                <ErrorMessage message={this.state.error} />
+              ) : (
+                <NewPerson addPerson={this.addPerson} />
+              )
+            }
           />
           <Route
             exact
             path="/modify"
-            render={() => (
-              <ModifyPerson
-                person={this.state.activePerson}
-                modifyPerson={this.modifyPerson}
-              />
-            )}
+            render={() =>
+              this.state.error !== "" ? (
+                <ErrorMessage message={this.state.error} />
+              ) : (
+                <ModifyPerson
+                  person={this.state.activePerson}
+                  modifyPerson={this.modifyPerson}
+                />
+              )
+            }
           />
         </div>
       </div>

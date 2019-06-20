@@ -1,0 +1,21 @@
+.error {
+  width: 20rem;
+  margin: 3rem;
+  padding: 2rem;
+  color: red;
+}
+
+.error a {
+  background: transparent;
+  color: red;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin: 1rem;
+}
+.error a:hover {
+  border-radius: 100%;
+  border:0.1rem red;
+  background: rgba(238, 141, 141, 0.5);
+}
