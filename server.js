@@ -16,6 +16,7 @@ const sendUserError = (msg, res) => {
 let people = [
 	{
 		id: 1,
+		portret: './john-smith.jpg',
 		firstname: 'John',
 		lastname: 'Smith',
 		house: 1,
@@ -23,6 +24,7 @@ let people = [
 	},
 	{
 		id: 2,
+		portret: './lily-smith.jpg',
 		firstname: 'Lily',
 		lastname: 'Smith',
 		house: 1,
@@ -30,37 +32,42 @@ let people = [
 	},
 	{
 		id: 3,
-		firstName: 'Mary',
+		portret: './mary-smith.jpg',
+		firstname: 'Mary',
 		lastname: 'Smith',
 		house: 1,
-		growth: 'kid'
+		growth: 'teenager'
 	},
 	{
 		id: 4,
-		firstName: 'Tom',
+		portret: './tom-smith.jpg',
+		firstname: 'Tom',
 		lastname: 'Smith',
 		house: 1,
-		growth: 'kid'
+		growth: 'teenager'
 	},
 	{
 		id: 5,
-		firstName: 'Muriel',
+		portret: './muriel-bagge.jpg',
+		firstname: 'Muriel',
 		lastname: 'Bagge',
 		house: 2,
-		growth: 'adult'
+		growth: 'old'
 	},
 	{
 		id: 6,
-		firstName: 'Eustace',
+		portret: './eustace-bagge.jpg',
+		firstname: 'Eustace',
 		lastname: 'Bagge',
 		house: 2,
-		growth: 'adult'
+		growth: 'old'
 	},
 	{
 		id: 7,
-		firstName: 'King',
+		portret: './king-ramses.png',
+		firstname: 'King',
 		lastname: 'Ramses',
-		house: 2,
+		house: 3,
 		growth: 'kid'
 	}
 ];
@@ -70,11 +77,11 @@ server.get('/people', (req, res) => {
 let personId = 1;
 
 server.post('/people', (req, res) => {
-	const { firstname, lastname, house, growth } = req.body;
-	const newPerson = { firstname, lastname, house, growth, id: personId };
-	if (!firstname || !lastname || !house || !growth) {
+	const { portret, firstname, lastname, house, growth } = req.body;
+	const newPerson = { portret, firstname, lastname, house, growth, id: personId };
+	if (!portret || !firstname || !lastname || !house || !growth) {
 		return sendUserError(
-			'What neighbour! Firstname/Lastname/House/Growth are all required to create a person in the Small Town.',
+			'What neighbour! Portret link/First name/Last name/House/Growth are all required to create a person in the Small Town.',
 			res
 		);
 	}
@@ -92,7 +99,7 @@ server.post('/people', (req, res) => {
 
 server.put('/people/:id', (req, res) => {
 	const { id } = req.params;
-	const { firstname, lastname, house, growth } = req.body;
+	const { portret, firstname, lastname, house, growth } = req.body;
 	const findSmurfById = (person) => {
 		return person.id == id;
 	};
@@ -100,6 +107,7 @@ server.put('/people/:id', (req, res) => {
 	if (!foundPerson) {
 		return sendUserError('No person found by that ID', res);
 	} else {
+		if (portret) foundPerson.firstname = portret;
 		if (firstname) foundPerson.firstname = firstname;
 		if (lastname) foundPerson.lastname = lastname;
 		if (house) foundPerson.house = house;
