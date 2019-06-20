@@ -103,9 +103,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <nav>
-          <NavLink to="/new">New person</NavLink>
-          <NavLink to="/people">People</NavLink>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/new">👤</NavLink>
+          <NavLink to="/people">👪︎</NavLink>
+          <NavLink to="/">🏚️</NavLink>
         </nav>
         <div>
           <Route exact path="/" component={Home} />
